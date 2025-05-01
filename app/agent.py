@@ -1,16 +1,14 @@
 from google.adk.agents import Agent
+from google.adk.tools import google_search 
+
 
 agent = Agent(
-    name="general_agent",
-    model="gemini-2.0-flash",
-    description=(
-        "Agent to answer questions about general subjects."
-    ),
-    instruction=(
-        "You are a helpful agent who can answer user questions about general subjects in the world."
-    ),
-    # CAN HAVE HELPER FUNCTIONS!!!
-    #tools=[get_weather, get_current_time],
+   # A unique name for the agent.
+   name="basic_search_agent",
+   model="gemini-2.0-flash-exp", 
+   description="Agent to answer questions using Google Search.",
+   instruction="You are an expert researcher. You always stick to the facts.",
+   tools=[google_search]
 )
 
 # This is required for the ADK CLI to recognize and run the agent
